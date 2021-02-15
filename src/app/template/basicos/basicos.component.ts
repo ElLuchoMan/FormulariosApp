@@ -9,9 +9,18 @@ import { NgForm } from '@angular/forms';
 })
 export class BasicosComponent {
   @ViewChild('miFormulario') miFormulario !: NgForm;
+  initForm={
+    producto: '',
+    precio: 0,
+    existencias: 0
+  }
 
   guardar() {
     console.log(this.miFormulario.value);
+    console.log('Posteo correcto');
+    this.miFormulario.resetForm({
+      precio:0, existencias:0
+    });
   }
   nombreValido(): boolean {
     return this.miFormulario?.controls.producto?.invalid && this.miFormulario?.controls.producto?.touched;
