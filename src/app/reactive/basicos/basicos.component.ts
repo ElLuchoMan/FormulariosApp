@@ -21,11 +21,11 @@ export class BasicosComponent implements OnInit {
   })
   constructor(private fb: FormBuilder) { }
   ngOnInit() {
-    this.miFormulario.reset({
-      nombre: '',
-      precio: 0,
-      existencias: 0
-    })
+    // this.miFormulario.reset({
+    //   nombre: '',
+    //   precio: 0,
+    //   existencias: 0
+    // })
   }
 
   campoEsValido(campo: string) {
