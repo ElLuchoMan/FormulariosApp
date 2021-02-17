@@ -14,3 +14,11 @@
         {{reactive.texto}}
     </li>
 </ul>
+<h2 class="mt-3">Validaciones</h2>
+<hr>
+<ul class="list-group">
+    <li *ngFor="let auth of authMenu" class="list-group-item" [routerLink]="[auth.ruta]"
+        routerLinkActive="active">
+        {{auth.texto}}
+    </li>
+</ul>

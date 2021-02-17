@@ -1,6 +1,5 @@
 <h2>Reactive <small>Switches</small></h2>
 <hr>
-
 <form [formGroup]="miFormulario" (ngSubmit)="guardar()">
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label"> Género</label>
@@ -19,12 +18,12 @@
             </div>
         </div>
     </div>
-
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label"> Notificaciones </label>
         <div class="col-sm-9">
             <div class="form-check form-switch mt-2">
-                <input class="form-check-input" formControlName="notificaciones" type="checkbox" id="switchNotificaciones">
+                <input class="form-check-input" formControlName="notificaciones" type="checkbox"
+                    id="switchNotificaciones">
                 <label class="form-check-label" for="switchNotificaciones">Quiero recibir notificaciones</label>
             </div>
         </div>
@@ -33,22 +32,20 @@
         <label class="col-sm-3 col-form-label"> </label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" formControlName="condiciones" value="" id="defaultCheck1">
+                <input class="form-check-input" type="checkbox" formControlName="condiciones" value=""
+                    id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
                     Acepto los Términos y condiciones
                 </label>
             </div>
         </div>
     </div>
-
     <div class="row">
         <div class="col">
             <button class="btn btn-primary float-end" type="submit">Guardar</button>
         </div>
     </div>
-
 </form>
-
 <h5>Valor del formulario</h5>
 <pre>{{miFormulario.value|json}}</pre>
 <h5>Valor de Persona</h5>

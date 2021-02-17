@@ -17,7 +17,6 @@ export class SwitchesComponent implements OnInit {
     genero: 'F',
     notificaciones: true,
   }
-
   constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
@@ -25,8 +24,6 @@ export class SwitchesComponent implements OnInit {
     this.miFormulario.valueChanges.subscribe(({ condiciones, ...rest }) => {
       this.persona = rest;
     })
-
-
   }
   guardar() {
     const formValue = { ...this.miFormulario.value };

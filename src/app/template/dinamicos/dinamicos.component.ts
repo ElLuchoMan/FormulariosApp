@@ -22,7 +22,7 @@ export class DinamicosComponent {
     favoritos: [
       { id: 1, nombre: 'Mario Bross' },
       { id: 2, nombre: 'Leap Ray' },
-      { id: 3, nombre: 'Call of Duty Mobile' }
+      { id: 3, nombre: 'Call of Dutty Mobile' }
     ]
   }
   guardar() {
