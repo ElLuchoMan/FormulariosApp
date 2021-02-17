@@ -13,20 +13,20 @@
         <label class="col-sm-3 col-form-label">Agregar</label>
         <div class="col-sm-9">
             <div class="input-group">
-                <input type="text" class="form-control" (keyup.enter)="1" name="nuevoJuego"
-                    placeholder="Agregar favorito">
-                <button class="btn btn-outline-primary" type="button" (click)="1"> Agregar</button>
+                <input type="text" class="form-control" (keyup.enter)="agregarFavorito()" name="nuevoJuego"
+                    placeholder="Agregar favorito" [formControl]="nuevoFavorito">
+                <button class="btn btn-outline-primary" type="button" (click)="agregarFavorito()"> Agregar</button>
             </div>
         </div>
     </div>
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Favoritos</label>
-        <!-- <div class="col-sm-9">
-            <div class="input-group mb-1 " >
-                <input class=" form-control" >
-                <button class="btn btn-outline-danger" type="button" (click)="a=1"> Borrar</button>
+        <div class="col-sm-9" formArrayName="favoritos">
+            <div class="input-group mb-1" *ngFor="let favorito of favoritosArr.controls;let i=index">
+                <input class=" form-control" [formControlName]="i">
+                <button class="btn btn-outline-danger" type="button" (click)="borrar(i)"> Borrar</button>
             </div>
-        </div> -->
+        </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
@@ -34,6 +34,13 @@
         </div>
     </div>
 </form>
+<span> Valid</span>
+<pre> {{miFormulario.valid |json}}</pre>
+<span>Value</span>
+<pre>{{miFormulario.value|json}}</pre>
+
+<span>Agregar juego</span>
+<pre>{{nuevoFavorito.value}}</pre>
 <!-- <span>
     Persona
 </span>
