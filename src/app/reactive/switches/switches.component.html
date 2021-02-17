@@ -1,18 +1,18 @@
 <h2>Reactive <small>Switches</small></h2>
 <hr>
 
-<form>
+<form [formGroup]="miFormulario">
     <div class="row mb-3">
         <label class="col-sm-3 col-form-label"> Género</label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" value="M" type="radio" name="radioGenero" id="radioMasculino">
+                <input class="form-check-input" formControlName="genero" value="M" type="radio" id="radioMasculino">
                 <label class="form-check-label" for="radioMasculino">
                     Masculino
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" value="F" type="radio" name="radioGenero" id="radioFemenino">
+                <input class="form-check-input" formControlName="genero" value="F" type="radio" id="radioFemenino">
                 <label class="form-check-label" for="radioFemenino">
                     Femenino
                 </label>
@@ -24,7 +24,7 @@
         <label class="col-sm-3 col-form-label"> Notificaciones </label>
         <div class="col-sm-9">
             <div class="form-check form-switch mt-2">
-                <input class="form-check-input" type="checkbox" id="switchNotificaciones">
+                <input class="form-check-input" formControlName="notificaciones" type="checkbox" id="switchNotificaciones">
                 <label class="form-check-label" for="switchNotificaciones">Quiero recibir notificaciones</label>
             </div>
         </div>
@@ -33,7 +33,7 @@
         <label class="col-sm-3 col-form-label"> </label>
         <div class="col-sm-9">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class="form-check-input" type="checkbox" formControlName="condiciones" value="" id="defaultCheck1">
                 <label class="form-check-label" for="defaultCheck1">
                     Acepto los Términos y condiciones
                 </label>
@@ -48,7 +48,7 @@
     </div>
 
 </form>
-<!-- 
+
 <h5>Valor del formulario</h5>
 <pre>{{miFormulario.value|json}}</pre>
 <h5>Valor de Persona</h5>
@@ -57,4 +57,4 @@
 <pre>{{miFormulario.valid}}</pre>
 <h5>Términos</h5>
 <pre>{{miFormulario.controls?.terminos?.errors | json}}</pre>
-<h5>Condiciones</h5> -->
+<h5>Condiciones</h5>
