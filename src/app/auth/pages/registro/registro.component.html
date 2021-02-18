@@ -17,7 +17,8 @@
                     <label class="col-sm-3 co-form-label">Email</label>
                     <input type="email" class="form-control" formControlName="email" autocomplete="off"
                         placeholder="Email">
-                    <span *ngIf="campoNoValido('email')" class="form-text text-danger"> Correo es obligatorio</span>
+                    <span *ngIf="campoNoValido('email')" class="form-text text-danger"> {{emailErrorMsg}}</span>
+
                 </div>
             </div>
             <div class="row mb-3">
@@ -47,13 +48,15 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <button type="submit" class="btn btn-primary float-end">Crear</button>
+                    <button type="submit" class="btn btn-primary float-end"
+                        [disabled]="miFormulario.pending">Crear</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
 <h5> Form Valid: {{miFormulario.valid}}</h5>
+<h5> Estado: {{miFormulario.status|json}}</h5>
 <h5> Errors: {{miFormulario.errors|json}}</h5>
 <h2>Nombre</h2>
 <pre>{{miFormulario.controls.nombre.errors|json}}</pre>
