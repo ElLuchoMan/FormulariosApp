@@ -3,24 +3,29 @@
 
 <div class="row">
     <div class="col">
-        <form autocomplete="off">
+        <form (ngSubmit)="submitFormulario()" autocomplete="off" [formGroup]="miFormulario">
             <div class="row mb-3">
                 <div class="col-sm-9">
                     <label class="col-sm-3 co-form-label">Nombre</label>
-                    <input type="text" class="form-control" placeholder="Nombre">
-                    <span class="form-text text-danger"> Debe ser en formato de nombre y apellido</span>
+                    <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+                    <span *ngIf="campoNoValido('nombre')" class="form-text text-danger"> Debe ser en formato de nombre y
+                        apellido</span>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-sm-9">
                     <label class="col-sm-3 co-form-label">Email</label>
-                    <input type="email" class="form-control" placeholder="Email">
+                    <input type="email" class="form-control" formControlName="email" autocomplete="off"
+                        placeholder="Email">
+                    <span *ngIf="campoNoValido('email')" class="form-text text-danger"> Correo es obligatorio</span>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-sm-9">
                     <label class="col-sm-3 co-form-label">Username</label>
-                    <input type="text" class="form-control" placeholder="Username">
+                    <input type="text" class="form-control" formControlName="username" placeholder="Username">
+                    <span *ngIf="campoNoValido('username')" class="form-text text-danger"> El username no puede ser
+                        Papo </span>
                 </div>
             </div>
             <div class="row mb-3">
@@ -37,9 +42,16 @@
             </div>
             <div class="row">
                 <div class="col-sm-9">
-                    <button class="btn btn-primary float-end">Crear</button>
+                    <button type="submit" class="btn btn-primary float-end">Crear</button>
                 </div>
             </div>
         </form>
     </div>
 </div>
+<h5> Form Valid: {{miFormulario.valid}}</h5>
+<h2>Nombre</h2>
+<pre>{{miFormulario.controls.nombre.errors|json}}</pre>
+<h5>Email</h5>
+<pre>{{miFormulario.controls.email.errors|json}}</pre>
+<h5>Username</h5>
+<pre>{{miFormulario.controls.username.errors|json}}</pre>
