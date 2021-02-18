@@ -31,13 +31,18 @@
             <div class="row mb-3">
                 <div class="col-sm-9">
                     <label class="col-sm-3 co-form-label">Contraseña</label>
-                    <input type="password" class="form-control" placeholder="Contraseña">
+                    <input type="password" class="form-control" formControlName="password" placeholder="Contraseña">
+                    <span *ngIf="campoNoValido('password')" class="form-text text-danger">Debe ser de mínimo 6
+                        caracteres </span>
                 </div>
             </div>
             <div class="row mb-3">
                 <div class="col-sm-9">
                     <label class="col-sm-3 co-form-label">Contraseña</label>
-                    <input type="password" class="form-control" placeholder="Confirmar Contraseña">
+                    <input type="password" class="form-control" formControlName="password2"
+                        placeholder="Confirmar Contraseña">
+                    <span *ngIf="campoNoValido('password2')" class="form-text text-danger"> Las contraseñas no coinciden
+                    </span>
                 </div>
             </div>
             <div class="row">
@@ -49,9 +54,14 @@
     </div>
 </div>
 <h5> Form Valid: {{miFormulario.valid}}</h5>
+<h5> Errors: {{miFormulario.errors|json}}</h5>
 <h2>Nombre</h2>
 <pre>{{miFormulario.controls.nombre.errors|json}}</pre>
 <h5>Email</h5>
 <pre>{{miFormulario.controls.email.errors|json}}</pre>
 <h5>Username</h5>
 <pre>{{miFormulario.controls.username.errors|json}}</pre>
+<h5>Password</h5>
+<pre>{{miFormulario.controls.password.errors|json}}</pre>
+<h5>Confirmacion</h5>
+<pre>{{miFormulario.controls.password2.errors|json}}</pre>
